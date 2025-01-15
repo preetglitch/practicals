@@ -1,0 +1,32 @@
+<router-outlet/>
+<div>
+  <div>
+      <label >car name~</label>
+      <input type="text" [(ngModel)]="temp.car_name" placeholder="enter car_name"/>
+
+      <label>company name~</label>
+      <input type="text" [(ngModel)]="temp.company_name" placeholder="enter company_name"/>
+  </div>
+  <hr>
+  <div>
+      <button type="button" (click)="add_new_car()">add new car</button>
+  </div>
+  </div>
+  <hr>
+  <table border="1" style="color: bisque; background-color: black; 
+  width: 250px; height: 100px;">
+        <tr>
+          <th>car name</th>
+          <th>company name</th> 
+        </tr>
+      <tr *ngFor="let i of cars;let idx=index" style="width: 200px;">
+          <td>{{i.car_name}}</td>
+          <td>{{i.company_name}}</td>
+          <td> <button type="button" 
+            (click)="delete_car(idx)">delete car
+          </button></td>
+          <td> <button type="button" (click)="edit_car(idx)">edit car
+        </button></td>
+      </tr>
+  </table>
+  
