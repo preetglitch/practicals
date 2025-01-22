@@ -1,0 +1,32 @@
+<form #userform="#ngform">
+    <input type="text" name="name" placeholder="enter name" 
+    [(ngModel)]="user.name" name="ngModel" required/>
+    <span class="text-danger" *ngif="name.invalid && name.touched">
+        Name is required
+    </span>
+    
+    <input type="text" name="age" placeholder="enter age" 
+    [(ngModel)]="user.age" #age="ngModel" required min="18" max="20">
+    <span class="text-danger" *ngIf="age.invalid && age.touched && !user.age">
+        plz enter Age 
+    </span>
+    <span class="text-danger" *ngIf="(user.age! >20 || user.age! <18)
+        age.invalid && age.touched && user.age">
+        plz enter Age btween 18 to 20
+    </span>
+
+    <input type="text" name="email" placeholder="enter email" 
+    [(ngModel)]="user.email" email="ngModel" required/>
+    <span class="text-danger" 
+    *ngif="email.invalid && email.touched && !user.email">
+        email is required
+    </span>
+    <span class="text-danger" 
+    *ngif="email.invalid && email.touched && user.email">
+       valid email is required
+    </span>
+
+    <input type="text" name="spi" placeholder="enter spi" 
+    [(ngModel)]="user.spi" #spi="ngModel" required min="1" max=""10>
+
+</form>
